@@ -1,0 +1,117 @@
+/* Envelope.css */
+.envelope-container {
+  position: relative;
+  width: 256px;
+  height: 192px;
+  margin: 32px auto;
+  cursor: pointer;
+}
+
+.envelope-body {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.envelope-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.envelope-emoji {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+.envelope-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.envelope-flap {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
+  z-index: 10;
+}
+
+.envelope-flap.open {
+  transform: rotateX(-180deg);
+}
+
+.envelope-seal {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: calc(50% - 20px);
+  top: calc(50% - 20px);
+  z-index: 20;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.envelope-seal.hidden {
+  opacity: 0;
+  z-index: 0;
+}
+
+.envelope-heart {
+  color: #fff;
+  font-size: 1.25rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.button-container {
+  margin-top: 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-button {
+  background-color: #ec4899;
+  color: white;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.add-button:hover {
+  background-color: #db2777;
+  transform: scale(1.05);
+}
+
+.envelope-section {
+  background-color: #f0f0f0;
+  padding: 32px 0;
+  margin: 20px 0;
+}
