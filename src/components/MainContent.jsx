@@ -1,18 +1,15 @@
 import React from 'react';
 import GiftBox from './GiftBox';
 import Cake from './Cake';
-import Card from './Card';
-import Envelopes from './Envelopes';
-
+import BirthdayCard from './BirthdayCard';
 function MainContent() {
   return (
     <section className="main-content">
       <div className="container">
         <GiftBox />
         <Cake />
-        <Card />
-        <Envelopes />
-      </div>
+        <BirthdayCard />
+    </div>
     </section>
   );
 }
