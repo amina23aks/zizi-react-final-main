@@ -16,10 +16,6 @@ function Header() {
           <p className="subtitle">On this special day, a beautiful soul was born</p>
         </div>
       </div>
-      <div className="decorations">
-       <div className="stars"></div>
-       <div className="confetti"></div>
-     </div>
 
     </header>
   );

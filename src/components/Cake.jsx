@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
+import cakeImg from '../assets/cake-with-cream.png';
+import '../Cake.css';
 
 function Cake() {
-  const [blown, setBlown] = useState(false);
+  const [litCandles, setLitCandles] = useState([true, true, true]);
 
-  const handleCakeClick = () => {
-    setBlown(true);
+  const toggleFlame = (index) => {
+    const newLit = [...litCandles];
+    newLit[index] = !newLit[index];
+    setLitCandles(newLit);
   };
 
   return (
     <div className="cake-container">
-      <div className="cake" onClick={handleCakeClick}>
-        <div className="cake-top"></div>
-        <div className="cake-middle"></div>
-        <div className="cake-bottom"></div>
-        <div className="candle">
-          {!blown && <div className="flame"></div>}
+      <img src={cakeImg} alt="Birthday Cake" className="cake-image" />
+      {litCandles.map((isLit, i) => (
+        <div
+          key={i}
+          className="candle"
+          style={{ left: `${180 + i * 52}px` }}  // spacing adjusted to wide cake
+          onClick={() => toggleFlame(i)}
+        >
+          <div className="wick"></div>
+          {isLit && <div className="flame"></div>}
         </div>
-      </div>
+      ))}
     </div>
   );
 }
