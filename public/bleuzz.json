@@ -1,0 +1,47 @@
+{
+  "messages": [
+    {
+      "author": "Sarah",
+      "text": "You've been such an amazing friend to me all these years. Thank you for always being there when I needed someone to talk to. You make the world a better place just by being you!"
+    },
+    {
+      "author": "Michael",
+      "text": "Remember when we stayed up all night talking about our dreams? Those are the moments I treasure the most. You inspire me to be a better person every day!"
+    },
+    {
+      "author": "Emma",
+      "text": "Your smile brightens even the darkest days. Never stop being the wonderful, caring person that you are. You deserve all the happiness in the world!"
+    }
+  ],
+  "photos": [
+    {
+      "src": "/images/blz.jpg",
+      "caption": "At the beach",
+      "from": "Amina"
+    },
+    {
+      "src": "/images/amina.jpg",
+      "caption": "Birthday celebration",
+      "from": "Sarah"
+    },
+    {
+      "src": "/images/blz.jpg",
+      "caption": "Birthday celebration last year",
+      "from": "Michael"
+    }
+  ],
+  "wishes": [
+    {
+      "name": "Alex",
+      "wish": "I wish you all the happiness in the world. May your days be filled with laughter and joy!"
+    },
+    {
+      "name": "Jessica",
+      "wish": "I wish you success in everything you do. You deserve the best life has to offer!"
+    },
+    {
+      "name": "David",
+      "wish": "I wish you health, wealth, and endless adventures. Keep shining bright!"
+    }
+  ]
+}
