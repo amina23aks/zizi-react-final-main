@@ -10,6 +10,7 @@
 .giftcontainer {
   position: relative;
   z-index: 10;
+  perspective: 1000px;
 }
 
 .giftcontainer::before {
@@ -17,17 +18,25 @@
   position: absolute;
   width: 170px;
   height: 20px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
   border-radius: 50%;
   top: 90px;
   left: -10px;
+  filter: blur(3px);
+  transform: rotateX(60deg);
 }
 
 .gift {
   position: relative;
   width: 150px;
   height: 100px;
-  background-color: #5a93f7;
+  background: linear-gradient(135deg, #4a80f5 0%, #5a93f7 50%, #3a70e7 100%);
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), inset 0 -5px 10px rgba(0, 0, 0, 0.1), inset 0 5px 10px
+    rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
+  transform: rotateX(5deg);
+  transition: transform 0.3s ease;
 }
 
 .gift::before {
@@ -35,8 +44,11 @@
   position: absolute;
   width: 25px;
   height: 100px;
-  background-color: #e76f51;
+  background: linear-gradient(to right, #e76f51 0%, #f4a261 50%, #e76f51 100%);
   left: 62px;
+  border-radius: 2px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
+  z-index: 2;
 }
 
 .gift::after {
@@ -45,6 +57,26 @@
   box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
   width: 150px;
   height: 100px;
+  border-radius: 8px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 200%;
+  animation: shine 3s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -100% -100%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 #gift-click {
@@ -53,7 +85,7 @@
 
 .click {
   position: absolute;
-  background-color: #5a93f7;
+  background: linear-gradient(135deg, #4a80f5 0%, #5a93f7 50%, #3a70e7 100%);
   width: 170px;
   height: 40px;
   top: -40px;
@@ -61,6 +93,9 @@
   transform-origin: bottom left;
   transition: 0.3s;
   cursor: pointer;
+  border-radius: 8px 8px 0 0;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1), inset 0 5px 10px rgba(255, 255, 255, 0.3);
+  transform-style: preserve-3d;
 }
 
 .click::before {
@@ -68,26 +103,71 @@
   position: absolute;
   width: 25px;
   height: 40px;
-  background-color: #e76f51;
+  background: linear-gradient(to right, #e76f51 0%, #f4a261 50%, #e76f51 100%);
   left: 72px;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
+  z-index: 2;
 }
 
 .click::after {
   content: "";
   position: absolute;
-  width: 5px;
-  height: 0;
-  border-bottom: 30px solid #e76f51;
-  border-top: 30px solid #e76f51;
-  border-left: 0 solid transparent;
-  border-right: 30px solid #e76f51;
-  transform: rotate(-90deg);
-  left: 65px;
-  top: -47px;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #e76f51 0%, #f4a261 50%, #e76f51 100%);
+  border-radius: 50% 50% 0 50%;
+  left: 55px;
+  top: -30px;
+  transform: rotate(45deg);
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1), inset 2px -2px 5px rgba(255, 255, 255, 0.3);
+  z-index: 3;
 }
 
 #gift-click:checked + .click {
   transform: rotate(-110deg) scale(0.85);
+  box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.1), inset 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Ribbon details */
+.click::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 40px;
+  background: linear-gradient(to right, #e76f51 0%, #f4a261 50%, #e76f51 100%);
+  left: 72px;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
+  z-index: 2;
+}
+
+/* Ribbon bow */
+.click::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ffffff 0%, #f6f68c 50%, #ffffff 100%);
+  border-radius: 50% 50% 0 50%;
+  left: 62px;
+  top: -30px;
+  transform: rotate(45deg);
+  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1), inset 2px -2px 5px rgba(255, 255, 255, 0.3);
+  z-index: 3;
+}
+
+/* Add ribbon tails */
+.click::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 40px;
+  background: linear-gradient(to right, #ffffff 0%, #f6f68c 50%, #ffffff 100%);
+  left: 72px;
+  border-radius: 2px 2px 0 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
+  z-index: 2;
 }
 
 /* Canvas animation part */
@@ -118,6 +198,7 @@ canvas {
 .hidden {
   opacity: 0;
 }
+
 .flower-rain {
   position: fixed;
   top: 0;
@@ -135,26 +216,73 @@ canvas {
   width: 20px;
   height: 20px;
   background: pink;
-  border-radius: 50%;
+  border-radius: 50% 20% 50% 20%;
   opacity: 0.7;
   animation: fall 10s linear infinite;
   left: calc(100% * var(--random));
+  transform: rotate(45deg);
+  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.6), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fall {
   0% {
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0) rotate(45deg);
   }
   100% {
-    transform: translateY(110vh) rotate(360deg);
+    transform: translateY(110vh) rotate(405deg);
   }
 }
 
 .petal:nth-child(odd) {
   animation-duration: 12s;
 }
+
 .petal:nth-child(even) {
   animation-duration: 9s;
 }
 
+/* Add shimmer effect to the gift box */
+.gift::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 100px;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 255, 255, 0.1) 75%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 200%;
+  animation: shine 3s infinite linear;
+  pointer-events: none;
+}
 
+/* Add 3D effect to the gift box */
+.gift {
+  transform-style: preserve-3d;
+  transform: rotateX(5deg);
+  transition: transform 0.3s ease;
+}
+
+.gift:hover {
+  transform: rotateX(10deg) rotateY(5deg);
+}
+
+/* Add realistic ribbon texture */
+.gift::before,
+.click::before {
+  background-image: linear-gradient(to right, #ffffff 0%, #f6f68c 50%, #ffffff 100%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.1) 2px,
+      rgba(255, 255, 255, 0.1) 4px
+    );
+}
