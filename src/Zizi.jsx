@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import "./Zizi.css";
-import blz from './assets/blz.jpg';
-import amina from './assets/amina.jpg';
 
 export default function FriendshipPage() {
   const [activeModal, setActiveModal] = useState(null);
@@ -23,12 +21,7 @@ export default function FriendshipPage() {
       .then(res => res.json())
       .then(data => {
         setMessages(data.messages || []);
-        setPhotos(data.photos.map(photo => ({
-          ...photo,
-          src: photo.src.includes("blz.jpg") ? blz :
-               photo.src.includes("amina.jpg") ? amina :
-               photo.src // fallback
-        })) || []);
+        setPhotos(data.photos || []);
         setWishes(data.wishes || []);
       })
       .catch(err => console.error("Failed to load bleuzz.json:", err));
@@ -95,7 +88,7 @@ export default function FriendshipPage() {
           <EnvelopeCard
             emoji="✨"
             text="Wishes"
-            colorClass="color-pink" // ← you changed pink to yellow
+            colorClass="color-yellow"
             onClick={() => setActiveModal("wishesModal")}
           />
         </div>
@@ -107,7 +100,7 @@ export default function FriendshipPage() {
         </div>
       </div>
 
-      {/* Message Modal */}
+      {/* Modals */}
       <Modal isOpen={activeModal === "messageModal"} onClose={() => setActiveModal(null)} title="Messages">
         <div className="messages-container">
           {messages.map((message, index) => (
@@ -119,7 +112,6 @@ export default function FriendshipPage() {
         </div>
       </Modal>
 
-      {/* Photo Modal */}
       <Modal isOpen={activeModal === "photoModal"} onClose={() => setActiveModal(null)} title="Photo Memories">
         <div className="photos-container">
           {photos.map((photo, index) => (
@@ -132,8 +124,7 @@ export default function FriendshipPage() {
         </div>
       </Modal>
 
-      {/* Wishes Modal */}
-      <Modal isOpen={activeModal === "wishesModal"} onClose={() => setActiveModal(null)} title="Wishes ">
+      <Modal isOpen={activeModal === "wishesModal"} onClose={() => setActiveModal(null)} title="Wishes">
         <div className="wishes-container">
           {wishes.map((item, index) => (
             <div key={index} className="surprise-content">
@@ -150,15 +141,9 @@ export default function FriendshipPage() {
       {/* Admin Modal */}
       <Modal isOpen={activeModal === "adminModal"} onClose={() => setActiveModal(null)} title="Add New Content">
         <div className="nav-tabs">
-          <div className={`nav-tab ${activeTab === "messageTab" ? "active" : ""}`} onClick={() => setActiveTab("messageTab")}>
-            Add Message
-          </div>
-          <div className={`nav-tab ${activeTab === "photoTab" ? "active" : ""}`} onClick={() => setActiveTab("photoTab")}>
-            Add Photo
-          </div>
-          <div className={`nav-tab ${activeTab === "wishesTab" ? "active" : ""}`} onClick={() => setActiveTab("wishesTab")}>
-            Add Wish
-          </div>
+          <div className={`nav-tab ${activeTab === "messageTab" ? "active" : ""}`} onClick={() => setActiveTab("messageTab")}>Add Message</div>
+          <div className={`nav-tab ${activeTab === "photoTab" ? "active" : ""}`} onClick={() => setActiveTab("photoTab")}>Add Photo</div>
+          <div className={`nav-tab ${activeTab === "wishesTab" ? "active" : ""}`} onClick={() => setActiveTab("wishesTab")}>Add Wish</div>
         </div>
 
         {activeTab === "messageTab" && (
@@ -180,10 +165,6 @@ export default function FriendshipPage() {
             <div className="form-group">
               <label htmlFor="photoFrom">From</label>
               <input type="text" id="photoFrom" value={photoFrom} onChange={(e) => setPhotoFrom(e.target.value)} required />
-            </div>
-            <div className="form-group">
-              <label htmlFor="photoUpload">Upload Photo</label>
-              <input type="file" id="photoUpload" accept="image/*" />
             </div>
             <div className="form-group">
               <label htmlFor="photoCaption">Caption</label>

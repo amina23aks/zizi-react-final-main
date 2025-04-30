@@ -3,8 +3,25 @@ import "../GiftBox.css";
 
 const GiftBox = () => {
   const canvasRef = useRef(null);
+  const audioRef = useRef(null); // Audio reference
   const [isOpened, setIsOpened] = useState(false);
 
+  // Audio control
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isOpened) {
+      audio.play().catch((err) => {
+        console.error("Failed to play audio:", err);
+      });
+    } else {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }, [isOpened]);
+
+  // Canvas animation
   useEffect(() => {
     if (!isOpened) return;
 
@@ -13,16 +30,14 @@ const GiftBox = () => {
 
     const w = (canvas.width = 300);
     const h = (canvas.height = 200);
-    let hw = w / 2;
-    let hh = h / 2;
+    const hw = w / 2;
+    const hh = h / 2;
 
     const opts = {
       strings: ["HAPPY", "BIRTHDAY!"],
       charSize: 16,
       charSpacing: 20,
       lineHeight: 25,
-      cx: w / 2,
-      cy: h / 2,
       fireworkPrevPoints: 6,
       fireworkBaseLineWidth: 2,
       fireworkAddedLineWidth: 3,
@@ -45,11 +60,9 @@ const GiftBox = () => {
 
     const Tau = Math.PI * 2;
     const TauQuarter = Tau / 4;
-
     const calc = {
       totalWidth: opts.charSpacing * Math.max(opts.strings[0].length, opts.strings[1].length),
     };
-
     const letters = [];
 
     function Letter(char, x, y) {
@@ -205,6 +218,7 @@ const GiftBox = () => {
       <div className={`animation-section ${isOpened ? "visible" : "hidden"}`}>
         <canvas ref={canvasRef}></canvas>
       </div>
+      <audio ref={audioRef} src="/sing2.m4a" />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../BirthdayCard.css';
 import cover from '../assets/cover.PNG'; 
-import cov from '../assets/cov.PNG'; 
+import cov from '../assets/cov.jpg'; 
 
 const BirthdayCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -24,7 +24,7 @@ const BirthdayCard = () => {
           {/* No image inside the left anymore */}
         </div>
         <div className="cover-outer">
-          <img src={cover} alt="Outer Cover" />
+          <img src={cov} alt="Outer Cover" />
         </div>
       </div>
 

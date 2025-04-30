@@ -10,9 +10,10 @@
   position: relative;
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(to bottom, #ffffff 0%, #5bacff 100%);
+  background: linear-gradient(to bottom, #dfdbb8, #262d95);
   overflow-x: hidden;
 }
+
 
 .container-zizi {
   position: relative;
@@ -62,15 +63,13 @@ h1 {
 .envelope {
   width: 250px;
   height: 250px;
-  background: #ffffff;
-  border-radius: 12px;
+  background: #f5f7ff;
+  border-radius: 10px;
   position: relative;
   transform-style: preserve-3d;
-  transition: all 0.4s ease;
+  transition: transform 0.4s ease;
   margin: 0 15px 20px;
   cursor: pointer;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
 }
 
 .envelope:hover {
@@ -95,7 +94,7 @@ h1 {
   background: #5bacff;
 }
 
-.envelope-flap.color-pink {
+.envelope-flap.color-yellow {
   background: #f8e71c; /* bright yellow */
 }
 

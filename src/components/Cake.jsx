@@ -18,7 +18,7 @@ function Cake() {
         <div
           key={i}
           className="candle"
-          style={{ left: `${180 + i * 52}px` }}  // spacing adjusted to wide cake
+          style={{ left: `${170 + i * 53}px` }}  // spacing adjusted to wide cake
           onClick={() => toggleFlame(i)}
         >
           <div className="wick"></div>
