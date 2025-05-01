@@ -158,16 +158,19 @@ body {
 /* أماكن البالونات حسب رسمك */
 .balloon1 { top: 10%; left: 15%; }
 .balloon2 { top: 20%; right: 15%; }
-.balloon3 { top: 50%; left: 20%; }
-.balloon4 { top: 50%; right: 20%; }
+.balloon3 { top: 50%; right: 20%;  }
+.balloon4 { top: 50%; left: 20%; }
 .balloon5 { bottom: 10%; left: 30%; }
-.balloon6 { bottom: 10%; right: 30%; }
+.balloon6 { top: 60%; left: 10%; }
 .balloon7 { top: 35%; left: 10%; }
 .balloon8 { top: 40%; right: 10%; }
 .balloon9 { top: 40%; right: 28%; }
 .balloon10 { top: 40%; left: 30%; }
 .balloon11 { top: 48%; right: 36%; }
-.balloon12 { top: 60%; left: 10%; }
+.balloon12 { bottom: 10%; right: 30%; }
+.balloon13 { top: 78%; left: 18%; --duration: 7s; }
+.balloon14 { top: 65%; right: 12%; --duration: 6.5s; }
+
 /* حركة طفو ناعمة */
 
 

@@ -1,25 +1,35 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useWindowSize } from '@react-hook/window-size';
 import Confetti from 'react-confetti';
+
 import b1 from '../assets/b1.png';
 import b2 from '../assets/b2.png';
 import b3 from '../assets/b3.png';
 import b4 from '../assets/b4.png';
+import b5 from '../assets/b5.png';
 import ziziball from '../assets/ziziball.png';
+
 import "../styles.css";
 
 function Balloons() {
   const [width, height] = useWindowSize();
-  const audioRef = useRef(new Audio("/sing1.m4a"));
 
-  const handleBalloonClick = () => {
-    const audio = audioRef.current;
-    audio.pause();
-    audio.currentTime = 0;
-    audio.play().catch(err => console.error("Audio play failed:", err));
+  const balloonImages = [
+    b1, b2, b3, b4, b1, b2, b3, b4, b1, b2, b3, b4, b5, b5
+  ];
+
+  const voiceFiles = [
+    '/voices/v1.mp3', '/voices/v2.mp3', '/voices/v3.mp3', '/voices/v4.mp3',
+    '/voices/v5.mp3', '/voices/v6.mp3', '/voices/v7.mp3', '/voices/v8.mp3',
+    '/voices/v9.mp3', '/voices/v10.mp3', '/voices/v11.m4a', '/voices/v12.mp3','/voices/v13.mp3'
+  ];
+
+  const handleBalloonClick = (index) => {
+    if (index < 13) {
+      const audio = new Audio(voiceFiles[index]);
+      audio.play().catch(err => console.error("Audio play failed:", err));
+    }
   };
-
-  const balloonImages = [b1, b2, b3, b4, b1, b2, b3, b4, b1, b2, b3, b4];
 
   return (
     <div
@@ -56,7 +66,7 @@ function Balloons() {
           src={img}
           className={`balloon balloon${index + 1}`}
           alt={`Balloon ${index + 1}`}
-          onClick={handleBalloonClick}
+          onClick={() => handleBalloonClick(index)}
           style={{ cursor: "pointer" }}
         />
       ))}

@@ -257,7 +257,7 @@ const GiftBox = () => {
           ))}
         </div>
       )}
-      <audio ref={audioRef} src="/sing2.m4a" />
+      <audio ref={audioRef} src="/aud.mp3" />
     </div>
   )
 }
