@@ -1,7 +1,6 @@
 import React from 'react';
 import { useWindowSize } from '@react-hook/window-size';
 import Confetti from 'react-confetti';
-
 import b1 from '../assets/b1.png';
 import b2 from '../assets/b2.png';
 import b3 from '../assets/b3.png';
@@ -21,7 +20,8 @@ function Balloons() {
   const voiceFiles = [
     '/voices/v1.mp3', '/voices/v2.mp3', '/voices/v3.mp3', '/voices/v4.mp3',
     '/voices/v5.mp3', '/voices/v6.mp3', '/voices/v7.mp3', '/voices/v8.mp3',
-    '/voices/v9.mp3', '/voices/v10.mp3', '/voices/v11.m4a', '/voices/v12.mp3','/voices/v13.mp3'
+    '/voices/v9.mp3', '/voices/v10.mp3', '/voices/v11.m4a', '/voices/v12.mp3',
+    '/voices/v13.mp3',
   ];
 
   const handleBalloonClick = (index) => {
