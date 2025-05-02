@@ -19,6 +19,8 @@
   cursor: pointer;
   transition: all 0.5s ease;
   z-index: 10;
+  margin-top: 8em;   /* Move up */
+  margin-right: -4em;  /* Move left */
 }
 
 .birthday-card.expanded {

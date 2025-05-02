@@ -1,181 +1,175 @@
-.giftbox-wrapper {
+/* Original box styles */
+.box {
   position: relative;
+  width: 18em;
+  height: 18em;
+  margin-top: -4em;   /* Move up */
+  margin-left: -4em;  /* Move left */
+}
+
+.gift-container {
+  position: absolute;
+  width: 13em;
+  height: 3.3em;
+  bottom: 8.7em;
+  left: 2.5em;
+  z-index: 2;
+}
+
+.box-tape,
+.box-tape-left,
+.box-tape-right,
+.box-tape-center,
+.box-gifts,
+.box-gift-shadow,
+.box-gift {
+  position: absolute;
+}
+
+.box-tape-center, .box-tape-left, .box-tape-right {
+  background-color: #cc2424;
+}
+
+.box-tape {
+  position: absolute;
+  top: -2em;
+  left: 5em;
+  width: 3em;
+  height: 2em;
+  transform-origin: 50% 230%;
+  z-index: 10;
+}
+
+.box-tape-center {
+  border-radius: 1em;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.giftcontainer {
-  position: relative;
-  z-index: 10;
-  perspective: 1000px;
+.box-tape-left, .box-tape-right {
+  box-shadow: 0 0 0 0.7em #ee2e2e inset;
+  top: 0.3em;
+  width: 4em;
+  height: 5em;
+  z-index: -1;
 }
 
-.giftcontainer::before {
+.box-tape-left::before,
+.box-tape-right::before {
+  background-color: #ee2e2e;
+  border-radius: inherit;
   content: "";
+  display: block;
   position: absolute;
-  width: 170px;
-  height: 20px;
-  background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0) 100%);
-  border-radius: 50%;
-  top: 90px;
-  left: -10px;
-  filter: blur(3px);
-  transform: rotateX(60deg);
+  inset: 0;
 }
 
-.gift {
-  position: relative;
-  width: 150px;
-  height: 100px;
-  background: linear-gradient(135deg, #4a80f5 0%, #5a93f7 50%, #3a70e7 100%);
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2), inset 0 -5px 10px rgba(0, 0, 0, 0.1), inset 0 5px 10px
-    rgba(255, 255, 255, 0.3);
-  transform-style: preserve-3d;
-  transform: rotateX(5deg);
-  transition: transform 0.3s ease;
+.box-tape-left {
+  border-radius: 1.5em 0 3em 1em / 1.5em 0 3em 3.5em;
+  right: calc(100% - 0.75em);
+  transform: rotate(35deg);
+  transform-origin: 100% 15%;
 }
 
-.gift::before {
-  content: "";
+.box-tape-left::before {
+  clip-path: polygon(0 42%, 100% 12%, 100% 100%, 0 100%);
+}
+
+.box-tape-right {
+  border-radius: 0 1.5em 1em 3em / 0 1.5em 3.5em 3em;
+  left: calc(100% - 0.75em);
+  transform: rotate(-35deg);
+  transform-origin: 0% 15%;
+}
+
+.box-tape-right::before {
+  clip-path: polygon(0 12%, 100% 42%, 100% 100%, 0 100%);
+}
+
+.box-gifts,
+.box-gift,
+.box-gift-shadow {
+  transform-origin: 50% 100%;
+}
+
+.box-gifts {
+  animation: box-Bounce 1.5s ease-in-out infinite;
+  background: linear-gradient(#cc2424, #cc2424) 50% 50% / 3.3em 100% no-repeat, #dfd9d9;
+  border-radius: 1.5em;
+  bottom: 0.5em;
+  left: 3.3em;
+  overflow: hidden;
+  width: 11.4em;
+  height: 9em;    
+}
+
+.box-gift-shadow {
+  animation: boxShadowBounce 1.5s ease-in-out infinite;
+  background-color: #00000010;
+  top: -1.5em;
+  left: -1em;
+  border-radius: 1em;
+  width: 13em;
+  height: 3.3em;
+}
+
+/* New lid and opening animation elements */
+.lid-wrapper {
   position: absolute;
-  width: 25px;
-  height: 100px;
-  background: linear-gradient(to right, #e76f51 0%, #f4a261 50%, #e76f51 100%);
-  left: 62px;
-  border-radius: 2px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
-  z-index: 2;
-}
-
-.gift::after {
-  content: "";
-  position: absolute;
-  box-shadow: inset 0 10px rgba(0, 0, 0, 0.3);
-  width: 150px;
-  height: 100px;
-  border-radius: 8px;
-  background: linear-gradient(
-    45deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 25%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0.1) 75%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  background-size: 200% 200%;
-  animation: shine 3s infinite linear;
-}
-
-@keyframes shine {
-  0% {
-    background-position: -100% -100%;
-  }
-  100% {
-    background-position: 100% 100%;
-  }
-}
-
-#gift-click {
-  display: none;
-}
-
-.click {
-  position: absolute;
-  background: linear-gradient(135deg, #4a80f5 0%, #5a93f7 50%, #3a70e7 100%);
-  width: 170px;
-  height: 40px;
-  top: -40px;
-  left: -10px;
-  transform-origin: bottom left;
-  transition: 0.3s;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
-  border-radius: 8px 8px 0 0;
-  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1), inset 0 5px 10px rgba(255, 255, 255, 0.3);
-  transform-style: preserve-3d;
-}
-
-.click::before {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 40px;
-  background: linear-gradient(to right, #e76f51 0%, #f4a261 50%, #e76f51 100%);
-  left: 72px;
-  border-radius: 2px 2px 0 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
-  z-index: 2;
-}
-
-.click::after {
-  content: "";
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #e76f51 0%, #f4a261 50%, #e76f51 100%);
-  border-radius: 50% 50% 0 50%;
-  left: 55px;
-  top: -30px;
-  transform: rotate(45deg);
-  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1), inset 2px -2px 5px rgba(255, 255, 255, 0.3);
   z-index: 3;
 }
 
-#gift-click:checked + .click {
-  transform: rotate(-110deg) scale(0.85);
+.gift-lid {
+  position: absolute;
+  background: linear-gradient(#ee2e2e, #ee2e2e) 50% 50% / 3.3em 100% no-repeat, #efffee;
+  border-radius: 1em;
+  width: 13em;
+  height: 3.3em;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom left;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1), inset 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.gift-lid.opened {
+  transform: rotateX(110deg) scale(0.85);
   box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.1), inset 0 5px 10px rgba(255, 255, 255, 0.3);
 }
 
-/* Ribbon details */
-.click::before {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 40px;
-  background: linear-gradient(to right, #e76f51 0%, #f4a261 50%, #e76f51 100%);
-  left: 72px;
-  border-radius: 2px 2px 0 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
-  z-index: 2;
+
+.gift-lid.opened {
+  transform: rotate(-110deg) scale(0.85);
+  box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Ribbon bow */
-.click::after {
-  content: "";
+.box-gift {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #ffffff 0%, #f6f68c 50%, #ffffff 100%);
-  border-radius: 50% 50% 0 50%;
-  left: 62px;
-  top: -30px;
-  transform: rotate(45deg);
-  box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.1), inset 2px -2px 5px rgba(255, 255, 255, 0.3);
-  z-index: 3;
+  background: linear-gradient(#ee2e2e, #ee2e2e) 50% 50% / 3.3em 100% no-repeat, #efffee;
+  border-radius: 1em;
+  width: 13em;
+  height: 3.3em;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
-/* Add ribbon tails */
-.click::before {
-  content: "";
-  position: absolute;
-  width: 25px;
-  height: 40px;
-  background: linear-gradient(to right, #ffffff 0%, #f6f68c 50%, #ffffff 100%);
-  left: 72px;
-  border-radius: 2px 2px 0 0;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2), inset 0 0 3px rgba(255, 255, 255, 0.5);
-  z-index: 2;
+/* Animation keyframes from original design */
+@keyframes bTape {
+  from, 50% {
+    transform: translateY(0) rotate(0);
+  }
 }
-
-/* Canvas animation part */
 .animation-section {
   position: absolute;
   width: 300px;
   height: 200px;
-  top: calc(50% - 200px);
+  top: calc(50% - 170px);
   left: calc(50% - 150px);
   z-index: 1;
   opacity: 0;
@@ -188,101 +182,6 @@
 }
 
 canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-}
-
-.hidden {
-  opacity: 0;
-}
-
-.flower-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 5;
-}
-
-.petal {
-  position: absolute;
-  top: -10%;
-  width: 20px;
-  height: 20px;
-  background: pink;
-  border-radius: 50% 20% 50% 20%;
-  opacity: 0.7;
-  animation: fall 10s linear infinite;
-  left: calc(100% * var(--random));
-  transform: rotate(45deg);
-  box-shadow: inset 2px 2px 5px rgba(255, 255, 255, 0.6), inset -2px -2px 5px rgba(0, 0, 0, 0.1);
-}
-
-@keyframes fall {
-  0% {
-    transform: translateY(0) rotate(45deg);
-  }
-  100% {
-    transform: translateY(110vh) rotate(405deg);
-  }
-}
-
-.petal:nth-child(odd) {
-  animation-duration: 12s;
-}
-
-.petal:nth-child(even) {
-  animation-duration: 9s;
-}
-
-/* Add shimmer effect to the gift box */
-.gift::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 150px;
-  height: 100px;
-  border-radius: 8px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.1) 25%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0.1) 75%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  background-size: 200% 200%;
-  animation: shine 3s infinite linear;
-  pointer-events: none;
-}
-
-/* Add 3D effect to the gift box */
-.gift {
-  transform-style: preserve-3d;
-  transform: rotateX(5deg);
-  transition: transform 0.3s ease;
-}
-
-.gift:hover {
-  transform: rotateX(10deg) rotateY(5deg);
-}
-
-/* Add realistic ribbon texture */
-.gift::before,
-.click::before {
-  background-image: linear-gradient(to right, #ffffff 0%, #f6f68c 50%, #ffffff 100%),
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 2px,
-      rgba(255, 255, 255, 0.1) 2px,
-      rgba(255, 255, 255, 0.1) 4px
-    );
 }
