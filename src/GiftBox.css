@@ -1,0 +1,187 @@
+/* Original box styles */
+.box {
+  position: relative;
+  width: 18em;
+  height: 18em;
+  margin-top: -4em;   /* Move up */
+  margin-left: -4em;  /* Move left */
+}
+
+.gift-container {
+  position: absolute;
+  width: 13em;
+  height: 3.3em;
+  bottom: 8.7em;
+  left: 2.5em;
+  z-index: 2;
+}
+
+.box-tape,
+.box-tape-left,
+.box-tape-right,
+.box-tape-center,
+.box-gifts,
+.box-gift-shadow,
+.box-gift {
+  position: absolute;
+}
+
+.box-tape-center, .box-tape-left, .box-tape-right {
+  background-color: #cc2424;
+}
+
+.box-tape {
+  position: absolute;
+  top: -2em;
+  left: 5em;
+  width: 3em;
+  height: 2em;
+  transform-origin: 50% 230%;
+  z-index: 10;
+}
+
+.box-tape-center {
+  border-radius: 1em;
+  width: 100%;
+  height: 100%;
+}
+
+.box-tape-left, .box-tape-right {
+  box-shadow: 0 0 0 0.7em #ee2e2e inset;
+  top: 0.3em;
+  width: 4em;
+  height: 5em;
+  z-index: -1;
+}
+
+.box-tape-left::before,
+.box-tape-right::before {
+  background-color: #ee2e2e;
+  border-radius: inherit;
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+.box-tape-left {
+  border-radius: 1.5em 0 3em 1em / 1.5em 0 3em 3.5em;
+  right: calc(100% - 0.75em);
+  transform: rotate(35deg);
+  transform-origin: 100% 15%;
+}
+
+.box-tape-left::before {
+  clip-path: polygon(0 42%, 100% 12%, 100% 100%, 0 100%);
+}
+
+.box-tape-right {
+  border-radius: 0 1.5em 1em 3em / 0 1.5em 3.5em 3em;
+  left: calc(100% - 0.75em);
+  transform: rotate(-35deg);
+  transform-origin: 0% 15%;
+}
+
+.box-tape-right::before {
+  clip-path: polygon(0 12%, 100% 42%, 100% 100%, 0 100%);
+}
+
+.box-gifts,
+.box-gift,
+.box-gift-shadow {
+  transform-origin: 50% 100%;
+}
+
+.box-gifts {
+  animation: box-Bounce 1.5s ease-in-out infinite;
+  background: linear-gradient(#cc2424, #cc2424) 50% 50% / 3.3em 100% no-repeat, #dfd9d9;
+  border-radius: 1.5em;
+  bottom: 0.5em;
+  left: 3.3em;
+  overflow: hidden;
+  width: 11.4em;
+  height: 9em;    
+}
+
+.box-gift-shadow {
+  animation: boxShadowBounce 1.5s ease-in-out infinite;
+  background-color: #00000010;
+  top: -1.5em;
+  left: -1em;
+  border-radius: 1em;
+  width: 13em;
+  height: 3.3em;
+}
+
+/* New lid and opening animation elements */
+.lid-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.gift-lid {
+  position: absolute;
+  background: linear-gradient(#ee2e2e, #ee2e2e) 50% 50% / 3.3em 100% no-repeat, #efffee;
+  border-radius: 1em;
+  width: 13em;
+  height: 3.3em;
+  bottom: 0;
+  left: 0;
+  transform-origin: bottom left;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1), inset 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.gift-lid.opened {
+  transform: rotateX(110deg) scale(0.85);
+  box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.1), inset 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+
+.gift-lid.opened {
+  transform: rotate(-110deg) scale(0.85);
+  box-shadow: -5px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.box-gift {
+  position: absolute;
+  background: linear-gradient(#ee2e2e, #ee2e2e) 50% 50% / 3.3em 100% no-repeat, #efffee;
+  border-radius: 1em;
+  width: 13em;
+  height: 3.3em;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Animation keyframes from original design */
+@keyframes bTape {
+  from, 50% {
+    transform: translateY(0) rotate(0);
+  }
+}
+.animation-section {
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: calc(50% - 170px);
+  left: calc(50% - 150px);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  pointer-events: none;
+}
+
+.animation-section.visible {
+  opacity: 1;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,102 @@
+.card-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+
+.birthday-card {
+  position: relative;
+  width: 200px;
+  height: 290px;
+  border: 10px solid #bde0fe;
+  margin: 60px auto 0 auto;
+  box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  z-index: 10;
+  margin-top: 8em;   /* Move up */
+  margin-right: -4em;  /* Move left */
+}
+
+.birthday-card.expanded {
+  width: 330px;
+  height: 480px;
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 25px rgba(0,0,0,0.6);
+  z-index: 1001;
+  cursor: default;
+  transition: all 0.5s ease;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+}
+
+.birthday-card .cover-outer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: -10px 0 0 -10px;
+  border: 10px solid #bde0fe;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transform: perspective(800px) rotateY(0deg);
+  transition: all 0.8s ease-in-out;
+}
+
+.birthday-card .cover-outer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.birthday-card .cover-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: solid #bde0fe;
+  margin: 5px 0px 9 -10px;
+  backface-visibility: visible;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transform: perspective(800px) rotateY(0deg);
+  transition: all 0.8s ease-in-out;
+  overflow: hidden;
+}
+
+/* new class for both closed and expanded */
+.birthday-card .cover-inner.with-blue-background {
+  background-color: #bde0fe; /* Light blue */
+}
+
+/* expanded version same */
+.birthday-card.expanded .cover-inner.no-image {
+  background-color: #bde0fe; /* Light blue */
+}
+
+.birthday-card:hover .cover-outer {
+  transform: perspective(800px) rotateY(-170deg);
+}
+
+.birthday-card:hover .cover-inner {
+  transform: perspective(800px) rotateY(-170deg);
+  box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
