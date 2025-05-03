@@ -28,16 +28,26 @@ const GiftBox = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    const w = (canvas.width = 300);
-    const h = (canvas.height = 200);
+    // Set canvas width and height based on screen size
+    const setCanvasSize = () => {
+      const containerWidth = Math.min(300, window.innerWidth - 40);
+      const containerHeight = Math.min(200, window.innerHeight / 3);
+      
+      canvas.width = containerWidth;
+      canvas.height = containerHeight;
+      
+      return { w: containerWidth, h: containerHeight };
+    };
+
+    const { w, h } = setCanvasSize();
     const hw = w / 2;
     const hh = h / 2;
 
     const opts = {
       strings: ['HAPPY', 'BIRTHDAY!'],
-      charSize: 16,
-      charSpacing: 20,
-      lineHeight: 25,
+      charSize: Math.max(12, Math.min(16, w / 20)), // Responsive font size
+      charSpacing: Math.max(15, Math.min(20, w / 15)), // Responsive spacing
+      lineHeight: Math.max(20, Math.min(25, h / 8)), // Responsive line height
       fireworkPrevPoints: 6,
       fireworkBaseLineWidth: 2,
       fireworkAddedLineWidth: 3,
@@ -201,7 +211,18 @@ const GiftBox = () => {
       requestAnimationFrame(anim);
     }
 
+    // Add resize event listener for responsiveness
+    window.addEventListener('resize', () => {
+      const { w, h } = setCanvasSize();
+      init();
+    });
+
     init();
+
+    // Cleanup event listener
+    return () => {
+      window.removeEventListener('resize', setCanvasSize);
+    };
   }, [opened]);
 
   return (
@@ -233,8 +254,8 @@ const GiftBox = () => {
       <div className={`animation-section ${opened ? 'visible' : ''}`}>
         <canvas ref={canvasRef}></canvas>
       </div>
-      <audio ref={audioRef} src={process.env.PUBLIC_URL + "/aud.mp3"} />
-      </div>
+      <audio ref={audioRef} src={process.env.PUBLIC_URL + "/voices/HappyBirthdaySong.m4a"} />
+    </div>
   );
 };
 

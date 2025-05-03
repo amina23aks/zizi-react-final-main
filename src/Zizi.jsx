@@ -30,14 +30,16 @@ export default function FriendshipPage() {
     <div className="app-container">
       <div className="container-zizi">
         <header className="head">
-          <h1 className="Text">For My Amazing Friend</h1>
+        <div className="heading-shift">
+          <h1 className="Text">To The Beautiful Person</h1>
+        </div>
           <p className="subtitle">A collection of love and memories just for you</p>
         </header>
 
         <div className="letter-container">
-          <EnvelopeCard emoji="💜" text="انا و زيزي" colorClass="color-purple" onClick={() => { setCurrentIndex(0); setActiveModal("messageModal"); }} />
-          <EnvelopeCard emoji="📸" text="مشاعري في صورة" colorClass="color-blue" onClick={() => { setCurrentIndex(0); setActiveModal("photoModal"); }} />
-          <EnvelopeCard emoji="🤲" text="دعاء" colorClass="color-yellow" onClick={() => { setCurrentIndex(0); setActiveModal("wishesModal"); }} />
+          <EnvelopeCard emoji="💜" text="لزيزي" colorClass="color-purple text-purple" onClick={() => { setCurrentIndex(0); setActiveModal("messageModal"); }} />
+          <EnvelopeCard emoji="📷" text="مشاعري في صورة" colorClass="color-blue text-blue" onClick={() => { setCurrentIndex(0); setActiveModal("photoModal"); }} />
+          <EnvelopeCard emoji="🤲" text="دعاء" colorClass="color-yellow text-yellow" onClick={() => { setCurrentIndex(0); setActiveModal("wishesModal"); }} />
         </div>
       </div>
 

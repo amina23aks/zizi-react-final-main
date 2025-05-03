@@ -90,7 +90,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-size: 5rem;
   font-weight: 700;
-  color: var(--green-dark);
+  color: #223099  ;
   margin-bottom: 20px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   animation: fadeInDown 1.5s ease-out;
@@ -135,6 +135,7 @@ body {
   z-index: 1;
   position: relative;
   pointer-events: none;
+  left: 24px;
 }
 /* Balloon Positions */
 .balloon {
@@ -392,3 +393,38 @@ body {
 }
 
 
+/* Add these styles to your existing styles.css */
+
+/* Responsive Balloon Adjustments */
+@media (max-width: 768px) {
+  .balloon {
+    width: 60px !important; /* Slightly smaller balloons on tablets */
+  }
+  
+  .center-zizi img {
+    max-width: 80%; /* Make central image fit better */
+  }
+}
+
+/* Replace your existing mobile balloon position styles with these improved ones */
+@media (max-width: 480px) {
+
+  
+  /* Better distributed balloon positions for mobile */
+  .balloon1 { top: 5%; left: 5%; }
+  .balloon2 { top: 8%; right: 8%; }
+  .balloon3 { top: 25%; right: 5%; }
+  .balloon4 { top: 30%; left: 5%; }
+  .balloon5 { bottom: 25%; left: 8%; }
+  .balloon6 { bottom: 5%; left: 15%; }
+  .balloon7 { top: 15%; left: 25%; }
+  .balloon8 { top: 20%; right: 25%; }
+  .balloon9 { bottom: 15%; right: 25%; }
+  .balloon10 { top: 45%; left: 15%; }
+  .balloon11 { top: 28%; right: 15%; }
+  .balloon12 { bottom: 10%; right: 5%; }
+  .balloon13 { bottom: 32%; left: 30%; }
+  .balloon14 { bottom: 28%; right: 30%; }
+  
+
+}

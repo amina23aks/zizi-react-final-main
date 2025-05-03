@@ -5,7 +5,7 @@
   min-width: 200px;
   max-width: 250px;
   margin: 0 auto;
-  margin-left: -80px;
+  margin-left: -78px;
   margin-top: -80px;
 }
 
@@ -17,7 +17,7 @@
 /* Candle Styling - Bigger, Taller, Off-white */
 .candle {
   position: absolute;
-  top: 89px; 
+  top: 124px; 
   width: 12px;
   height: 60px;
   border-radius: 6px;
@@ -41,7 +41,7 @@
 /* Flame Styling */
 .flame {
   position: absolute;
-  top: -30px;
+  top: -26px;
   left: 50%;
   width: 15px;
   height: 28px;
@@ -62,55 +62,12 @@
   }
 }
 
-/* Responsive Enhancements */
-@media (max-width: 768px) {
-  .cake-image {
-    width: 200px;
-  }
-
-  .candle {
-    width: 10px;
-    height: 40px;
-  }
-
-  .flame {
-    width: 14px;
-    height: 20px;
-  }
-
-  .wick {
-    height: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .cake-container {
-    margin-top: -50px;
-  }
-
-  .cake-image {
-    width: 160px;
-  }
-
-  .candle {
-    width: 8px;
-    height: 30px;
-  }
-
-  .flame {
-    width: 10px;
-    height: 16px;
-  }
-
-  .wick {
-    height: 6px;
-  }
-}
+/* Candle Styles */
 .candle-left {
   background: repeating-linear-gradient(
     45deg,
-    #e1ff73,
-    #e1ff73 5px,
+    #FFD700,
+    #FFD700 5px,
     #ffffff 5px,
     #ffffff 10px
   );
@@ -136,3 +93,24 @@
   );
 }
 
+/* Responsive Enhancements - Only modify what's needed for mobile */
+@media (max-width: 768px) {
+  .cake-container {
+    /* Keep the same dimensions, just adjust for smaller screens */
+    transform: scale(0.8);
+    transform-origin: center top;
+    margin-left: -150px; /* Shifted slightly to the left */
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .cake-container {
+    /* Slightly left of center */
+    margin-left: -30px; /* Adjusted to be slightly left of center */
+    margin-right: auto;
+    margin-top: -40px;
+    transform: scale(0.65);
+    transform-origin: center top;
+  }
+}
