@@ -12,7 +12,9 @@
   width: 13em;
   height: 3.3em;
   bottom: 8.7em;
-  left: 2.5em;
+  /* Center horizontally by removing left offset */
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
