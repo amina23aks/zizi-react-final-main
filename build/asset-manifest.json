@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/static/css/main.92c640b8.css",
+    "main.js": "/static/js/main.406dcfb7.js",
+    "static/media/b5.png": "/static/media/b5.6584855a82fee6f885b3.png",
+    "static/media/cake-with-cream.png": "/static/media/cake-with-cream.49cd3eaa6966c8ec1d36.png",
+    "static/media/cover.png": "/static/media/cover.4ade14a854d00bb741ba.png",
+    "static/media/cov.png": "/static/media/cov.321a35d80b98d98372e7.png",
+    "static/media/ziziball.png": "/static/media/ziziball.c0f8a952d912ba440718.png",
+    "static/media/b2.png": "/static/media/b2.dfb492e9b6dd589ca432.png",
+    "static/media/b3.png": "/static/media/b3.8f39f85ab5652a4a2c35.png",
+    "static/media/b4.png": "/static/media/b4.ece969e3d4b87819fc91.png",
+    "static/media/b1.png": "/static/media/b1.ceecc3ef497bc929ebb1.png",
+    "static/media/zizi.png": "/static/media/zizi.247959390c47f6646983.png",
+    "index.html": "/index.html",
+    "main.92c640b8.css.map": "/static/css/main.92c640b8.css.map",
+    "main.406dcfb7.js.map": "/static/js/main.406dcfb7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.92c640b8.css",
+    "static/js/main.406dcfb7.js"
+  ]
+}

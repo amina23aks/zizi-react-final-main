@@ -4,7 +4,7 @@
   width: 18em;
   height: 18em;
   margin-top: -4em;   /* Move up */
-  margin-left: -4em;  /* Move left */
+  margin-left: -8em;  /* Move left */
 }
 
 .gift-container {
@@ -94,7 +94,7 @@
 
 .box-gifts {
   animation: box-Bounce 1.5s ease-in-out infinite;
-  background: linear-gradient(#cc2424, #cc2424) 50% 50% / 3.3em 100% no-repeat, #dfd9d9;
+  background: linear-gradient(#ee2e2e, #ee2e2e) 50% 50% / 3.3em 100% no-repeat, #efffee;
   border-radius: 1.5em;
   bottom: 0.5em;
   left: 3.3em;
@@ -184,4 +184,27 @@
 canvas {
   width: 100%;
   height: 100%;
+}
+@media (max-width: 768px) {
+  .box-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .gift-message {
+    font-size: 1.2rem;
+    top: 105%;
+  }
+}
+
+@media (max-width: 480px) {
+  .box-container {
+    width: 150px;
+    height: 150px;
+  }
+
+  .gift-message {
+    font-size: 1rem;
+    padding: 6px;
+  }
 }

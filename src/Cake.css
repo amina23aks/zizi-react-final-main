@@ -1,10 +1,11 @@
+/* Cake Component Styles */
 .cake-container {
   position: relative;
   flex: 1;
   min-width: 200px;
   max-width: 250px;
   margin: 0 auto;
-  margin-left: -60px;
+  margin-left: -80px;
   margin-top: -80px;
 }
 
@@ -17,9 +18,8 @@
 .candle {
   position: absolute;
   top: 89px; 
-  width: 15px;
+  width: 12px;
   height: 60px;
-  background: linear-gradient(to bottom, #ffffff, #f2e9dc); /* clean off-white */
   border-radius: 6px;
   border: 1px solid #ccc;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -43,7 +43,7 @@
   position: absolute;
   top: -30px;
   left: 50%;
-  width: 18px;
+  width: 15px;
   height: 28px;
   background: radial-gradient(ellipse at center, #ffeb3b 0%, #ff9800 60%, transparent 80%);
   border-radius: 50% 50% 40% 40%;
@@ -61,3 +61,78 @@
     transform: translateX(-50%) scale(1.1) rotate(2deg);
   }
 }
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .cake-image {
+    width: 200px;
+  }
+
+  .candle {
+    width: 10px;
+    height: 40px;
+  }
+
+  .flame {
+    width: 14px;
+    height: 20px;
+  }
+
+  .wick {
+    height: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cake-container {
+    margin-top: -50px;
+  }
+
+  .cake-image {
+    width: 160px;
+  }
+
+  .candle {
+    width: 8px;
+    height: 30px;
+  }
+
+  .flame {
+    width: 10px;
+    height: 16px;
+  }
+
+  .wick {
+    height: 6px;
+  }
+}
+.candle-left {
+  background: repeating-linear-gradient(
+    45deg,
+    #e1ff73,
+    #e1ff73 5px,
+    #ffffff 5px,
+    #ffffff 10px
+  );
+}
+
+.candle-middle {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffffff,
+    #ffffff 5px,
+    #f2f2f2 5px,
+    #f2f2f2 10px
+  );
+}
+
+.candle-right {
+  background: repeating-linear-gradient(
+    45deg,
+    #3c6db3,
+    #3c6db3 5px,
+    #ffffff 5px,
+    #ffffff 10px
+  );
+}
+

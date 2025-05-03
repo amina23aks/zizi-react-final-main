@@ -704,7 +704,7 @@ h1 {
 }
 
 .envelope-flap.color-yellow {
-  background: #f8e71c; /* bright yellow */
+  background: #f3e872; /* bright yellow */
 }
 
 
@@ -1246,3 +1246,103 @@ h1 {
   transform: scale(1.1);
 }
 
+/* Existing full Zizi.css preserved */
+
+/* --- Responsive Enhancements --- */
+@media (max-width: 768px) {
+  .letter-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .envelope {
+    width: 200px;
+    height: 200px;
+    margin: 10px 0;
+  }
+
+  .envelope-content span {
+    font-size: 2rem;
+  }
+
+  .envelope-content p {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 20px;
+    width: 95%;
+    max-width: 100%;
+  }
+
+  .photo-slide img,
+  .polaroid-frame img {
+    max-height: 220px;
+  }
+
+  .polaroid-frame {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-zizi {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .envelope {
+    width: 160px;
+    height: 160px;
+  }
+
+  .envelope-content span {
+    font-size: 1.5rem;
+  }
+
+  .envelope-content p {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .photo-slide {
+    width: 95%;
+  }
+
+  .photo-slide img {
+    max-height: 180px;
+  }
+
+  .close-modal {
+    top: 10px;
+    right: 10px;
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+  }
+
+  .surprise-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .surprise-content p {
+    font-size: 1rem;
+  }
+
+  .wish-author {
+    font-size: 0.95rem;
+  }
+}

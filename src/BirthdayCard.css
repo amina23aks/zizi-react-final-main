@@ -1,3 +1,4 @@
+/* Birthday Card Styles */
 .card-container {
   position: relative;
   display: flex;
@@ -19,8 +20,8 @@
   cursor: pointer;
   transition: all 0.5s ease;
   z-index: 10;
-  margin-top: 8em;   /* Move up */
-  margin-right: -4em;  /* Move left */
+  margin-top: 8em;
+  margin-right: -4em;
 }
 
 .birthday-card.expanded {
@@ -80,16 +81,19 @@
   transform: perspective(800px) rotateY(0deg);
   transition: all 0.8s ease-in-out;
   overflow: hidden;
+  background-size: cover;
+  background-position: center;
 }
 
-/* new class for both closed and expanded */
 .birthday-card .cover-inner.with-blue-background {
-  background-color: #bde0fe; /* Light blue */
+  background-color: #bde0fe;
 }
 
-/* expanded version same */
 .birthday-card.expanded .cover-inner.no-image {
-  background-color: #bde0fe; /* Light blue */
+  background-image: url('./assets/cov2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .birthday-card:hover .cover-outer {
@@ -99,4 +103,40 @@
 .birthday-card:hover .cover-inner {
   transform: perspective(800px) rotateY(-170deg);
   box-shadow: 7px 0 5px 0 rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .birthday-card {
+    width: 90%;
+    height: auto;
+    margin-top: 6em;
+    margin-right: 0;
+  }
+
+  .birthday-card.expanded {
+    width: 95%;
+    height: auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .birthday-card {
+    width: 100%;
+    height: auto;
+    margin-top: 5em;
+    margin-right: 0;
+  }
+
+  .birthday-card.expanded {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .card-container {
+    flex-direction: column;
+    padding: 0 10px;
+  }
 }

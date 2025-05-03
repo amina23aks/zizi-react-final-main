@@ -10,17 +10,20 @@ export default function FriendshipPage() {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    const ziziImgs = Array.from({ length: 21 }, (_, i) => `/images/${i + 1}.png`);
-    const wishImgs = Array.from({ length: 21 }, (_, i) => `/images/${i + 1}d.png`);
+    const ziziImgs = Array.from({ length: 21 }, (_, i) => process.env.PUBLIC_URL + `/images/${i + 1}.png`);
+    const wishImgs = Array.from({ length: 21 }, (_, i) => process.env.PUBLIC_URL + `/images/${i + 1}d.png`);
     setMeAndZiziPhotos(ziziImgs);
     setWishPhotos(wishImgs);
 
     fetch(process.env.PUBLIC_URL + "/bleuzz.json")
       .then((res) => res.json())
       .then((data) => {
-        setPhotos(data.photos || []);
-      })
-      .catch((err) => console.error("Failed to load bleuzz.json:", err));
+        const updatedPhotos = (data.photos || []).map(photo => ({
+          ...photo,
+          src: process.env.PUBLIC_URL + photo.src
+        }));
+        setPhotos(updatedPhotos);
+      });
   }, []);
 
   return (
@@ -32,9 +35,9 @@ export default function FriendshipPage() {
         </header>
 
         <div className="letter-container">
-          <EnvelopeCard emoji="❤️" text="me and zizi" colorClass="color-purple" onClick={() => { setCurrentIndex(0); setActiveModal("messageModal"); }} />
-          <EnvelopeCard emoji="📸" text="Photo memories" colorClass="color-blue" onClick={() => { setCurrentIndex(0); setActiveModal("photoModal"); }} />
-          <EnvelopeCard emoji="✨" text="Wishes" colorClass="color-yellow" onClick={() => { setCurrentIndex(0); setActiveModal("wishesModal"); }} />
+          <EnvelopeCard emoji="💜" text="انا و زيزي" colorClass="color-purple" onClick={() => { setCurrentIndex(0); setActiveModal("messageModal"); }} />
+          <EnvelopeCard emoji="📸" text="مشاعري في صورة" colorClass="color-blue" onClick={() => { setCurrentIndex(0); setActiveModal("photoModal"); }} />
+          <EnvelopeCard emoji="🤲" text="دعاء" colorClass="color-yellow" onClick={() => { setCurrentIndex(0); setActiveModal("wishesModal"); }} />
         </div>
       </div>
 

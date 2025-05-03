@@ -1,26 +1,5 @@
 {
-  "messages": [
-    {
-      "author": "Sarah",
-      "text": "You've been such an amazing friend to me all these years. Thank you for always being there when I needed someone to talk to. You make the world a better place just by being you!"
-    },
-    {
-      "author": "Michael",
-      "text": "Remember when we stayed up all night talking about our dreams? Those are the moments I treasure the most. You inspire me to be a better person every day!"
-    },
-    {
-      "author": "Emma",
-      "text": "Your smile brightens even the darkest days. Never stop being the wonderful, caring person that you are. You deserve all the happiness in the world!"
-    },
-    {
-      "author": "Emma",
-      "text": "Your smile brightens even the darkest days. Never stop being the wonderful, caring person that you are. You deserve all the happiness in the world!"
-    },
-    {
-      "author": "أماني",
-      "text": "كل عام وانتي بخير يا زز كل عام وانتي الأخت الكبيرة والنعمة والصديقة اللي مكانها بين العزيز والصديق واللي وجودها غيّرني\n\n29 بس تحسينها أكثر كأنك عايشة أعمار مو عمر نضجك تفكيرك عطائك ما شاء الله عليك\nأوقات أقول لو كنت زيزي وش بقول وش بقرر كيف أتصرف\nأخذتك قدوة بدون ما أحس لأنك تستاهلين\n\nأنا من لما عرفتك تغيّرت حبة حبة بس صار\nانتي خليتيني أبدأ أفهم نفسي، أراقب كيف أفكر، كيف أتكلم، كيف أختار.\nصار فيني وعي ما كان عندي، صار فيني طاقة حُب ما كانت توصلني لنفسي قبل.\n\nزيزي، انتي دخلتي حياتي في وقت كنت فيه محتاجة فعليا لك و لكن مكنتش علابالي و محتاجة فعليا، وكنت نصيحة، وكنت حضن ذهني وروحي.\n\n29 سنة… بس والله كل سنة مرت عليك، انعكست فينا، فينا كلنا الي نحبك.\nكل سنة من تعبك، من علمك، من صبرك، من حبك، ما راحت هدر… وصلت.\nوصلتني أنا، وغيري كثير. وصلت لقلوب حتى ما يعرفونك شخصيًا، بس تأثروا فيك.\n\nعيد ميلادك مو بس يوم… هو تذكير لينا إن في الدنيا ناس طيبة، ذكية، ناضجة، تعرف تعطي، وتعرف توجّه، وتعرف تحتوي…\nناس زيك، نادرة، ولو تكررت، يتعدل شكل العالم.\n\nفـ يا رب يجعل عامك الـ29 عام خير سكين فرص حلو  علاقات صافية ونجاحات تفرحين فيها من قلبك\nويا رب يديم لك والدتك ويزيدك بركة في كل خطوة\nويخلي في حياتك ناس يردّون لك ولو جزء بسيط من اللي عطيتينا\n\nكل عام وانتي بخير يا زز، كل عام وانتي أختي الكبيرة اللي أفتخر فيها"
-    }
-  ],
+  
   "photos": [
       { "src": "/images/Cimfy.jpg", "caption": "", "from": "Cimfy" },
       { "src": "/images/haffsa-Happy-vitamin.jpg", "caption": "", "from": "من بلوزة" },
@@ -83,19 +62,5 @@
             { "src": "/images/هاجر.jpg", "caption": "", "from": "هاجر" },
       { "src": "/images/نيفين.jpg", "caption": "", "from": "نيفين" }
 
-  ],
-  "wishes": [
-    {
-      "name": "Alex",
-      "wish": "I wish you all the happiness in the world. May your days be filled with laughter and joy!"
-    },
-    {
-      "name": "Jessica",
-      "wish": "I wish you success in everything you do. You deserve the best life has to offer!"
-    },
-    {
-      "name": "David",
-      "wish": "I wish you health, wealth, and endless adventures. Keep shining bright!"
-    }
   ]
 }

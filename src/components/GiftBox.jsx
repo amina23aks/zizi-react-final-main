@@ -233,8 +233,8 @@ const GiftBox = () => {
       <div className={`animation-section ${opened ? 'visible' : ''}`}>
         <canvas ref={canvasRef}></canvas>
       </div>
-      <audio ref={audioRef} src="/aud.mp3" />
-    </div>
+      <audio ref={audioRef} src={process.env.PUBLIC_URL + "/aud.mp3"} />
+      </div>
   );
 };
 
