@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
+import FunnyQuiz from "./components/FunnyQuiz.jsx";
+import "./FunnyQuiz.css";
 import "./Zizi.css";
 
 export default function FriendshipPage() {
   const [activeModal, setActiveModal] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [showQuiz, setShowQuiz] = useState(false);
 
   const [meAndZiziPhotos, setMeAndZiziPhotos] = useState([]);
   const [wishPhotos, setWishPhotos] = useState([]);
@@ -30,9 +33,9 @@ export default function FriendshipPage() {
     <div className="app-container">
       <div className="container-zizi">
         <header className="head">
-        <div className="heading-shift">
-          <h1 className="Text">To The Beautiful Person</h1>
-        </div>
+          <div className="heading-shift">
+            <h1 className="Text">To The Beautiful Person</h1>
+          </div>
           <p className="subtitle">A collection of love and memories just for you</p>
         </header>
 
@@ -41,6 +44,12 @@ export default function FriendshipPage() {
           <EnvelopeCard emoji="📷" text="مشاعري في صورة" colorClass="color-blue text-blue" onClick={() => { setCurrentIndex(0); setActiveModal("photoModal"); }} />
           <EnvelopeCard emoji="🤲" text="دعاء" colorClass="color-yellow text-yellow" onClick={() => { setCurrentIndex(0); setActiveModal("wishesModal"); }} />
         </div>
+
+        <button className="add-button" onClick={() => setShowQuiz(!showQuiz)}>
+          {showQuiz ? "إخفاء الكويز" : "💬 Quiz Time!"}
+        </button>
+
+        {showQuiz && <FunnyQuiz />}
       </div>
 
       <ImageSliderModal
@@ -104,6 +113,8 @@ function ImageSliderModal({ isOpen, onClose, images, currentIndex, setCurrentInd
 
 function PhotoModal({ isOpen, onClose, photos, currentIndex, setCurrentIndex }) {
   if (!isOpen || photos.length === 0) return null;
+  const photo = photos[currentIndex];
+
   return (
     <div className="modal" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <button className="nav-button smaller left" onClick={() => setCurrentIndex((currentIndex - 1 + photos.length) % photos.length)}>&lt;</button>

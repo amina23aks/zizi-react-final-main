@@ -3,7 +3,7 @@ import Header from './components/Header';
 import MainContent from './components/MainContent';
 import Balloons from './components/Balloons';
 import FriendGiftPage from "./Zizi"
-
+import FunnyQuiz from './components/FunnyQuiz.jsx';
 function App() {
   return (
     <div>
@@ -11,6 +11,7 @@ function App() {
       <Balloons />
       <MainContent />
       <FriendGiftPage />
+      
     </div>
   );
 }
