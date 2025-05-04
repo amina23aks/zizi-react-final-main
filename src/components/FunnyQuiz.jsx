@@ -3,7 +3,7 @@ import "../FunnyQuiz.css";
 
 const quizData = [
   {
-    question: "بلوز ذا أولوية بحياتك؟",
+    question: "بلوز أولوية بحياتك؟",
     options: [
       { label: "نعم نعم", correct: true },
       { label: "أكيد لا", correct: false, evasive: true, fixedSpot: true }
