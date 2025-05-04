@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/zizi-react-final-main/static/css/main.ba944249.css",
-    "main.js": "/zizi-react-final-main/static/js/main.bb003e3d.js",
-    "static/media/b5.png": "/zizi-react-final-main/static/media/b5.6584855a82fee6f885b3.png",
-    "static/media/cover.png": "/zizi-react-final-main/static/media/cover.4ade14a854d00bb741ba.png",
-    "static/media/cov.png": "/zizi-react-final-main/static/media/cov.321a35d80b98d98372e7.png",
-    "static/media/cakeZZ.png": "/zizi-react-final-main/static/media/cakeZZ.9343ed04d5cb6763839e.png",
-    "static/media/Cove2.jpg": "/zizi-react-final-main/static/media/Cove2.7840823e369270889510.jpg",
-    "static/media/ziziball.png": "/zizi-react-final-main/static/media/ziziball.c0f8a952d912ba440718.png",
-    "static/media/b2.png": "/zizi-react-final-main/static/media/b2.dfb492e9b6dd589ca432.png",
-    "static/media/b3.png": "/zizi-react-final-main/static/media/b3.8f39f85ab5652a4a2c35.png",
-    "static/media/b4.png": "/zizi-react-final-main/static/media/b4.ece969e3d4b87819fc91.png",
-    "static/media/b1.png": "/zizi-react-final-main/static/media/b1.ceecc3ef497bc929ebb1.png",
-    "static/media/zizi.png": "/zizi-react-final-main/static/media/zizi.247959390c47f6646983.png",
-    "index.html": "/zizi-react-final-main/index.html",
-    "main.ba944249.css.map": "/zizi-react-final-main/static/css/main.ba944249.css.map",
-    "main.bb003e3d.js.map": "/zizi-react-final-main/static/js/main.bb003e3d.js.map"
+    "main.css": "/zizi-birthday-final/static/css/main.c9496f35.css",
+    "main.js": "/zizi-birthday-final/static/js/main.73c7324e.js",
+    "static/media/b5.png": "/zizi-birthday-final/static/media/b5.6584855a82fee6f885b3.png",
+    "static/media/cover.png": "/zizi-birthday-final/static/media/cover.4ade14a854d00bb741ba.png",
+    "static/media/cov.png": "/zizi-birthday-final/static/media/cov.321a35d80b98d98372e7.png",
+    "static/media/cakeZZ.png": "/zizi-birthday-final/static/media/cakeZZ.9343ed04d5cb6763839e.png",
+    "static/media/Cove2.jpg": "/zizi-birthday-final/static/media/Cove2.7840823e369270889510.jpg",
+    "static/media/ziziball.png": "/zizi-birthday-final/static/media/ziziball.c0f8a952d912ba440718.png",
+    "static/media/b2.png": "/zizi-birthday-final/static/media/b2.dfb492e9b6dd589ca432.png",
+    "static/media/b3.png": "/zizi-birthday-final/static/media/b3.8f39f85ab5652a4a2c35.png",
+    "static/media/b4.png": "/zizi-birthday-final/static/media/b4.ece969e3d4b87819fc91.png",
+    "static/media/b1.png": "/zizi-birthday-final/static/media/b1.ceecc3ef497bc929ebb1.png",
+    "static/media/zizi.png": "/zizi-birthday-final/static/media/zizi.247959390c47f6646983.png",
+    "index.html": "/zizi-birthday-final/index.html",
+    "main.c9496f35.css.map": "/zizi-birthday-final/static/css/main.c9496f35.css.map",
+    "main.73c7324e.js.map": "/zizi-birthday-final/static/js/main.73c7324e.js.map"
   },
   "entrypoints": [
-    "static/css/main.ba944249.css",
-    "static/js/main.bb003e3d.js"
+    "static/css/main.c9496f35.css",
+    "static/js/main.73c7324e.js"
   ]
 }
