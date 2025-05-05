@@ -49,9 +49,16 @@ export default function FriendshipPage() {
           {showQuiz ? "إخفاء الكويز" : "💬 Quiz Time!"}
         </button>
 
-        {showQuiz && <FunnyQuiz />}
+        {showQuiz && (
+  <div className="quiz-overlay">
+    <div className="quiz-modal">
+      <FunnyQuiz onClose={() => setShowQuiz(false)} />
+    </div>
+  </div>
+)}
       </div>
 
+      {/* 🟣 Zizi Messages Modal */}
       <ImageSliderModal
         isOpen={activeModal === "messageModal"}
         onClose={() => setActiveModal(null)}
@@ -60,6 +67,7 @@ export default function FriendshipPage() {
         setCurrentIndex={setCurrentIndex}
       />
 
+      {/* 📷 Photo Modal (with white background preserved) */}
       <PhotoModal
         isOpen={activeModal === "photoModal"}
         onClose={() => setActiveModal(null)}
@@ -68,6 +76,7 @@ export default function FriendshipPage() {
         setCurrentIndex={setCurrentIndex}
       />
 
+      {/* 🙏 Duaa Modal */}
       <ImageSliderModal
         isOpen={activeModal === "wishesModal"}
         onClose={() => setActiveModal(null)}
@@ -92,16 +101,39 @@ function EnvelopeCard({ emoji, text, colorClass, onClick }) {
 }
 
 function ImageSliderModal({ isOpen, onClose, images, currentIndex, setCurrentIndex }) {
+  // Add keyboard event listener when modal is open
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        setCurrentIndex((currentIndex - 1 + images.length) % images.length);
+      } else if (e.key === "ArrowRight") {
+        setCurrentIndex((currentIndex + 1) % images.length);
+      } else if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    
+    // Clean up the event listener when modal closes
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, currentIndex, images.length, setCurrentIndex, onClose]);
+
   if (!isOpen || images.length === 0) return null;
+  
   return (
-    <div className="modal" onClick={(e) => e.target === e.currentTarget && onClose()}>
+    <div className="modal image-slider" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <button className="nav-button smaller left" onClick={() => setCurrentIndex((currentIndex - 1 + images.length) % images.length)}>&lt;</button>
-      <div className="photo-slide" style={{ maxWidth: '90%' }}>
+      <div className="photo-slide" style={{ maxWidth: '70%' }}> {/* Changed from 90% to 70% */}
         <div className="polaroid-frame">
           <img
             src={images[currentIndex]}
             alt={`Slide ${currentIndex + 1}`}
-            style={{ maxHeight: '600px', width: '100%', objectFit: 'contain' }}
+            style={{ maxHeight: '400px', width: '100%', objectFit: 'contain' }} 
           />
         </div>
       </div>
@@ -112,18 +144,39 @@ function ImageSliderModal({ isOpen, onClose, images, currentIndex, setCurrentInd
 }
 
 function PhotoModal({ isOpen, onClose, photos, currentIndex, setCurrentIndex }) {
+  // Add keyboard event listener when modal is open
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "ArrowLeft") {
+        setCurrentIndex((currentIndex - 1 + photos.length) % photos.length);
+      } else if (e.key === "ArrowRight") {
+        setCurrentIndex((currentIndex + 1) % photos.length);
+      } else if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    
+    // Clean up the event listener when modal closes
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, currentIndex, photos.length, setCurrentIndex, onClose]);
+
   if (!isOpen || photos.length === 0) return null;
-  const photo = photos[currentIndex];
 
   return (
     <div className="modal" onClick={(e) => e.target === e.currentTarget && onClose()}>
       <button className="nav-button smaller left" onClick={() => setCurrentIndex((currentIndex - 1 + photos.length) % photos.length)}>&lt;</button>
-      <div className="photo-slide" style={{ maxWidth: '90%' }}>
+      <div className="photo-slide" style={{ maxWidth: '70%' }}>  {/* Changed from 90% to 70% */}
         <div className="polaroid-frame">
           <img
             src={photos[currentIndex].src || "/placeholder.svg"}
             alt="Memory"
-            style={{ maxHeight: '500px', width: '100%', objectFit: 'contain' }}
+            style={{ maxHeight: '400px', width: '100%', objectFit: 'contain' }}  
           />
           <div className="photo-details">
             <div className="photo-from">{photos[currentIndex].from}</div>

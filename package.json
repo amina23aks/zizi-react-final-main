@@ -2,7 +2,7 @@
   "name": "birthday-react-app",
   "version": "0.1.0",
   "private": true,
-"homepage": "https://amina23aks.github.io/zizi-birthday-final",
+"homepage": "https://amina23aks.github.io/zizi-react-final-main",
   "dependencies": {
     "@react-hook/window-size": "^3.1.1",
     "@tailwindcss/postcss": "^4.1.4",
