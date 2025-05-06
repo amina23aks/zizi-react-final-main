@@ -48,7 +48,15 @@ const quizData = [
       { label: "أكيد", correct: true }
     ],
     customMessage: "توقعت رغم الخيارات الكثيرة"
-  }
+  },
+  {
+    question: "بعد رؤية الموقع عم تفكري تتعاوني معنا لنسوي موقع لبلوز؟",
+    options: [
+      { label: "اي", correct: true },
+      { label: "اكيد", correct: true }
+    ],
+    customMessage: "قمة الديموقراطية"
+  },  
 ];
 
 export default function FunnyQuiz({ onClose = () => {} }) {
@@ -202,7 +210,7 @@ export default function FunnyQuiz({ onClose = () => {} }) {
           <div className="quiz-options">
             {q.options.map((opt, optIdx) => {
               const key = `${qIdx}-${optIdx}`;
-              const isCorrect = answers[qIdx] === "correct" && opt.correct;
+              const isCorrect = answers[qIdx] === "correct" && selectedOptions[qIdx] === optIdx;
               const isWrong =
                 answers[qIdx] === "wrong" && selectedOptions[qIdx] === optIdx;
 

@@ -254,7 +254,7 @@ const GiftBox = () => {
       <div className={`animation-section ${opened ? 'visible' : ''}`}>
         <canvas ref={canvasRef}></canvas>
       </div>
-      <audio ref={audioRef} src={process.env.PUBLIC_URL + "/voices/HappyBirthdaySong.m4a"} />
+      <audio ref={audioRef} src={process.env.PUBLIC_URL + "/voices/HappyBirthday.m4a"} />
     </div>
   );
 };

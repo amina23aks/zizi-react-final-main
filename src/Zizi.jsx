@@ -13,8 +13,8 @@ export default function FriendshipPage() {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    const ziziImgs = Array.from({ length: 21 }, (_, i) => process.env.PUBLIC_URL + `/images/${i + 1}.png`);
-    const wishImgs = Array.from({ length: 21 }, (_, i) => process.env.PUBLIC_URL + `/images/${i + 1}d.png`);
+    const ziziImgs = Array.from({ length: 22 }, (_, i) => process.env.PUBLIC_URL + `/images/${i + 1}.png`);
+    const wishImgs = Array.from({ length: 25 }, (_, i) => process.env.PUBLIC_URL + `/images/${i + 1}d.png`);
     setMeAndZiziPhotos(ziziImgs);
     setWishPhotos(wishImgs);
 
