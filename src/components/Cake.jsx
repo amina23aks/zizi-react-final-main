@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import cakeImg from '../assets/cakeZZ.png';
 import '../Cake.css';
 
 function Cake() {
@@ -27,7 +26,12 @@ function Cake() {
 
   return (
     <div className="cake-container">
-      <img src={cakeImg} alt="Birthday Cake" className="cake-image" />
+     <img
+  src={process.env.PUBLIC_URL + "/assets/cakeZZ.png"}
+  alt="Birthday Cake"
+  className="cake-image"
+/>
+
       
       {litCandles.map((isLit, i) => (
         <div

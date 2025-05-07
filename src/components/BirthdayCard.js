@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../BirthdayCard.css';
-import cover from '../assets/cover.png'; 
-import cov from '../assets/cov.png'; 
 
 const BirthdayCard = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -10,7 +8,6 @@ const BirthdayCard = () => {
     height: window.innerHeight
   });
 
-  // Handle window resize to maintain card proportions
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({
@@ -35,17 +32,32 @@ const BirthdayCard = () => {
         className={`birthday-card ${isExpanded ? 'expanded' : ''}`}
         onClick={!isExpanded ? expandCard : undefined}
         style={{
-          backgroundImage: `url(${cov})`,
+          backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/cov.png"})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          transform: isExpanded ? null : windowSize.width < 768 ? 'translateX(0)' : null
+          backgroundPosition: 'center'
         }}
       >
-        <div className={`cover-inner ${isExpanded ? 'no-image' : 'with-blue-background'}`}>
-          {/* No image inside the left anymore */}
+        <div
+          className={`cover-inner ${isExpanded ? 'no-image' : 'with-blue-background'}`}
+          style={
+            isExpanded
+              ? {
+                  backgroundImage: `url(${process.env.PUBLIC_URL + "/assets/Cove2.jpg"})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }
+              : {}
+          }
+        >
+          {/* Inner cover */}
         </div>
         <div className="cover-outer">
-          <img src={cover} alt="Outer Cover" style={{ objectFit: 'cover' }} />
+          <img
+            src={process.env.PUBLIC_URL + "/assets/cover.png"}
+            alt="Outer Cover"
+            style={{ objectFit: 'cover' }}
+          />
         </div>
       </div>
 

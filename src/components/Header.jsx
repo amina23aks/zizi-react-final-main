@@ -1,5 +1,4 @@
 import React from 'react';
-import avatar from '../assets/zizi.png'; // Make sure zizi.png is in src/assets/
 
 function Header() {
   return (
@@ -7,7 +6,7 @@ function Header() {
       <div className="container">
         <div className="avatar-container">
           <div className="avatar">
-            <img src={avatar} alt="Zizi" />
+            <img src={process.env.PUBLIC_URL + "/assets/zizi.png"} alt="Zizi" />
             <span className="avatar-name">Zizi</span>
           </div>
         </div>
@@ -16,9 +15,9 @@ function Header() {
           <p className="subtitle">On this special day, a beautiful soul was born</p>
         </div>
       </div>
-
     </header>
   );
 }
+
 
 export default Header;

@@ -5,8 +5,7 @@
   min-width: 200px;
   max-width: 250px;
   margin: 0 auto;
-  margin-left: -78px;
-  margin-top: -80px;
+  margin-left: -70px;
 }
 
 .cake-image {
@@ -99,18 +98,28 @@
     /* Keep the same dimensions, just adjust for smaller screens */
     transform: scale(0.8);
     transform-origin: center top;
-    margin-left: -150px; /* Shifted slightly to the left */
+    margin-left: -80px; /* Shifted slightly to the left */
     margin-right: auto;
   }
+}
+.cake-image {
+  width: 180%;
+  display: block;
 }
 
 @media (max-width: 480px) {
+
   .cake-container {
     /* Slightly left of center */
-    margin-left: -30px; /* Adjusted to be slightly left of center */
+    margin-left: -25px; /* Adjusted to be slightly left of center */
     margin-right: auto;
-    margin-top: -40px;
+    margin-top: -20px;
     transform: scale(0.65);
     transform-origin: center top;
   }
+  .cake-image {
+    width: 180%;
+    display: block;
+  }
 }
+

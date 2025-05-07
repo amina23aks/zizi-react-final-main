@@ -22,8 +22,7 @@
   cursor: pointer;
   transition: all 0.5s ease;
   z-index: 10;
-  margin-top: 11em;
-  margin-right: -4em;
+  margin-right: -0em;
 }
 
 .birthday-card.expanded {
@@ -113,12 +112,7 @@
   background-color: #bde0fe;
 }
 
-.birthday-card.expanded .cover-inner.no-image {
-  background-image: url('./assets/Cove2.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
+
 
 .birthday-card:hover .cover-outer {
   transform: perspective(800px) rotateY(-170deg);
@@ -135,12 +129,12 @@
     width: 180px;
     height: auto; /* Height auto with aspect ratio maintains proportions */
     aspect-ratio: 200 / 290;
-    margin-top: 6em;
-    margin-right: 0;
+    margin-top: -7em;
+    margin-right: 18px;
   }
 
   .birthday-card.expanded {
-    width: 80%;
+    width: 35%;
     height: auto;
     max-width: 330px; /* Limit maximum width */
     aspect-ratio: 330 / 480;
@@ -150,37 +144,31 @@
 @media (max-width: 480px) {
   .card-container {
     flex-direction: column;
-    padding: 0 10px;
+
   }
   
   .birthday-card {
     width: 150px;
     height: auto;
     aspect-ratio: 200 / 290; /* Keep original aspect ratio */
-    margin-top: 3em;
     margin-right: 0;
     border-width: 8px;
+    margin-top: -8em;
+    margin-right: 8px;
+
   }
 
   .birthday-card.expanded {
-    width: 90%;
+    width: -10%;
     height: auto;
-    max-width: 280px;
+    max-width: 150px;
     aspect-ratio: 330 / 480; /* Keep expanded aspect ratio */
-    border-width: 8px;
   }
   
-  .birthday-card .cover-outer {
-    margin: -8px 0 0 -8px;
-    border-width: 8px;
-  }
   
-  .birthday-card .cover-inner {
-    margin: 5px 0px 9px -8px;
-  }
 
   .close-button {
-    top: 10px;
+    bottom: 19px;
     right: 10px;
     width: 36px;
     height: 36px;

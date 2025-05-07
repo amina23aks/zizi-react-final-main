@@ -152,7 +152,7 @@ body {
 .balloon6 { top: 60%; left: 10%; --duration: 6.5s; }
 .balloon7 { top: 35%; left: 10%; --duration: 7.2s; }
 .balloon8 { top: 40%; right: 10%; --duration: 5.8s; }
-.balloon9 { top: 40%; right: 28%; --duration: 8s; }
+.balloon9 { top: 30%; right: 20%; --duration: 8s; }
 .balloon10 { top: 40%; left: 30%; --duration: 6.2s; }
 .balloon11 { top: 48%; right: 36%; --duration: 7.8s; }
 .balloon12 { bottom: 10%; right: 30%; --duration: 5.5s; }
@@ -237,34 +237,6 @@ body {
   justify-content: center;
 }
 
-.row-flex {
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 30px;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.side-block,
-.center-block {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.side-right {
-  margin-top: -90px;
-  padding: -40px;
-  margin-right: -60px;
-}
-
-.left-side {
-  margin-top: -90px;
-  padding: 190px 0;
-}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -413,15 +385,15 @@ body {
   /* Better distributed balloon positions for mobile */
   .balloon1 { top: 5%; left: 5%; }
   .balloon2 { top: 8%; right: 8%; }
-  .balloon3 { top: 25%; right: 5%; }
+  .balloon3 { top: 60%; right: 5%; }
   .balloon4 { top: 30%; left: 5%; }
-  .balloon5 { bottom: 25%; left: 8%; }
+  .balloon5 { bottom: 15%; left: 4%; }
   .balloon6 { bottom: 5%; left: 15%; }
   .balloon7 { top: 15%; left: 25%; }
   .balloon8 { top: 20%; right: 25%; }
-  .balloon9 { bottom: 15%; right: 25%; }
+  .balloon9 { top: 45%; right: 25%; }
   .balloon10 { top: 45%; left: 15%; }
-  .balloon11 { top: 28%; right: 15%; }
+  .balloon11 { top: 55%; right: 15%; }
   .balloon12 { bottom: 10%; right: 5%; }
   .balloon13 { bottom: 32%; left: 30%; }
   .balloon14 { bottom: 28%; right: 30%; }
