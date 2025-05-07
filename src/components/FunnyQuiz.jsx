@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import ReactDOM from "react-dom";
 import "../FunnyQuiz.css";
 
 const quizData = [
@@ -56,7 +57,7 @@ const quizData = [
       { label: "اكيد", correct: true }
     ],
     customMessage: "قمة الديموقراطية"
-  },  
+  },
 ];
 
 export default function FunnyQuiz({ onClose = () => {} }) {
@@ -90,10 +91,7 @@ export default function FunnyQuiz({ onClose = () => {} }) {
       setAnswers(newAnswers);
 
       if (quizData[qIdx].customMessage) {
-        setCustomMessages(prev => ({
-          ...prev,
-          [qIdx]: true
-        }));
+        setCustomMessages(prev => ({ ...prev, [qIdx]: true }));
       }
 
       if (qIdx === 2 && optionIdx === 0) {
@@ -169,7 +167,7 @@ export default function FunnyQuiz({ onClose = () => {} }) {
   };
 
   if (!showQuiz) {
-    return (
+    return ReactDOM.createPortal(
       <div className="quiz-welcome">
         <div className="quiz-close" onClick={onClose}>×</div>
         <h1 className="quiz-welcome-title">بلوز كويز - تحدي الصداقة</h1>
@@ -179,12 +177,13 @@ export default function FunnyQuiz({ onClose = () => {} }) {
         <button className="quiz-start-button" onClick={() => setShowQuiz(true)}>
           <span role="img" aria-label="game">🎮</span> !وقت الكويز
         </button>
-      </div>
+      </div>,
+      document.body
     );
   }
 
   if (quizCompleted) {
-    return (
+    return ReactDOM.createPortal(
       <div className="quiz-completed">
         <div className="quiz-close" onClick={onClose}>×</div>
         <h1 className="quiz-completed-title">بلوز كويز - تحدي الصداقة</h1>
@@ -196,11 +195,12 @@ export default function FunnyQuiz({ onClose = () => {} }) {
         <button className="quiz-restart-button" onClick={resetQuiz}>
           إعادة الكويز
         </button>
-      </div>
+      </div>,
+      document.body
     );
   }
 
-  return (
+  return ReactDOM.createPortal(
     <section className="quiz-section">
       <div className="quiz-close" onClick={onClose}>×</div>
       <h2 className="quiz-title">💙 فقرة الكويز البلوزي 💙</h2>
@@ -211,18 +211,13 @@ export default function FunnyQuiz({ onClose = () => {} }) {
             {q.options.map((opt, optIdx) => {
               const key = `${qIdx}-${optIdx}`;
               const isCorrect = answers[qIdx] === "correct" && selectedOptions[qIdx] === optIdx;
-              const isWrong =
-                answers[qIdx] === "wrong" && selectedOptions[qIdx] === optIdx;
+              const isWrong = answers[qIdx] === "wrong" && selectedOptions[qIdx] === optIdx;
 
               return (
                 <button
                   key={optIdx}
                   ref={(el) => (buttonRefs.current[key] = el)}
-                  className={`quiz-button 
-                    ${opt.evasive ? "evasive" : ""} 
-                    ${isCorrect ? "correct" : ""} 
-                    ${isWrong ? "wrong" : ""}
-                  `}
+                  className={`quiz-button ${opt.evasive ? "evasive" : ""} ${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}`}
                   onClick={() => handleClick(qIdx, optIdx, opt.correct, opt.evasive)}
                   onMouseEnter={() => handleMouseEnter(qIdx, optIdx)}
                   onTouchStart={() => handleMouseEnter(qIdx, optIdx)}
@@ -263,6 +258,7 @@ export default function FunnyQuiz({ onClose = () => {} }) {
           ))}
         </div>
       )}
-    </section>
+    </section>,
+    document.body
   );
 }
