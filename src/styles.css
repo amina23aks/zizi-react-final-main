@@ -237,6 +237,34 @@ body {
   justify-content: center;
 }
 
+.row-flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.side-block,
+.center-block {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.side-right {
+  margin-top: -90px;
+  padding: -40px;
+  margin-right: -60px;
+}
+
+.left-side {
+  margin-top: -90px;
+  padding: 190px 0;
+}
 
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -393,7 +421,7 @@ body {
   .balloon8 { top: 20%; right: 25%; }
   .balloon9 { top: 45%; right: 25%; }
   .balloon10 { top: 45%; left: 15%; }
-  .balloon11 { top: 55%; right: 15%; }
+  .balloon11 { top: 30%; right: 5%; }
   .balloon12 { bottom: 10%; right: 5%; }
   .balloon13 { bottom: 32%; left: 30%; }
   .balloon14 { bottom: 28%; right: 30%; }
